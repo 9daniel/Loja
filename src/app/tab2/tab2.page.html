@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Tab Three
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-list>
+  
+      <ion-item *ngFor="let itens of carrinho; let i = index">
+  
+        <ion-thumbnail slot="start">
+          <img [src]="itens.img">
+        </ion-thumbnail>
+  
+        <ion-label>
+        <div>
+           <strong>{{itens.nome}}</strong>
+          
+         
+
+         <p>
+       <small>Qtde: </small> {{itens.quantidade}}<strong>* </strong>
+               
+      <small>R$ </small>{{itens.valor}}</p>
+
+      </div>
+      </ion-label>
+
+        <ion-badge slot="end" color="primary"><small>R$ </small>{{itens.quantidade * itens.valor}}</ion-badge>
+   
+      
+      </ion-item>
+    </ion-list>  
+  
+<ion-button fill="outline" expand="block" *ngIf ="somatotal() > 0" (click)="finalizaCompra()" >Finalizar Compra</ion-button>
+
+  </ion-content>
+
+  <ion-footer>
+        <ion-toolbar>
+            <ion-title>Total</ion-title>
+          <ion-badge slot="end">
+            <small>R$</small>{{somatotal().toFixed(2)}}
+          </ion-badge>
+
+        </ion-toolbar>
+      
+  
+   </ion-footer>
+  
